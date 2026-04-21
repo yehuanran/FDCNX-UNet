@@ -3,7 +3,7 @@
 This is an official PyTorch implementation of "[**FDCNX-UNet Frequency Dynamic ConvNeXt UNet with Linear Attention for Building Segmentation**]".
 
 # Introduction
-With the rapid development of remote sensing technology, acquiring high-resolution remote sensing images has become increasingly straightforward. These images hold significant value in the field of building segmentation. However, their high resolution, complex scenes, and scale variations introduce challenges in their utilization. To address these issues, we propose a residual attention U-Net based on a diffusion model, integrating the diffusion model with structures such as U-Net, residual models and attention mechanisms to enhance the segmentation accuracy of buildings in remote sensing images. Leveraging the characteristics of diffusion models, we mitigate the influence of irrelevant background factors on segmentation results. A dual-branch Feature Extraction Block(FEB) is designed for noisy images and RGB images to achieve multi-modal information fusion. The self-attention mechanisms are embedded within the down-sample and up-sample to strengthen the comprehension of global features. The Channel Attention Block(CAB) guides high-level features to select low-level features, thus greatly ensuring the consistency of features.
+with the rapid development of remote sensing technology and deep learning, significant progress has been made in building segmentation from remote sensing images using semantic segmentation models. Currently, the encoderdecoder architecture is the most widely adopted framework in building segmentation research, though challenges such as blurred boundaries and poor segmentation performance for small targets persist. This is primarily due to network limitations in encoder feature extraction capability and decoder processing of transmission features. To address these challenges, we propose an encoder-decoder network named FDCNX-UNet capable of capturing global context.
 <center> 
 <img src="DRAU-Net.png" width="auto" height="auto">
 </center>
@@ -13,10 +13,10 @@ With the rapid development of remote sensing technology, acquiring high-resoluti
 ## 1. Requirements
 ```
 # Environments:
-cuda==12.6
-python==3.10
+cuda==11.8
+python==3.9
 # Dependencies:
-pip install torch==2.7.1 torchvision==0.22.1
+pip install torch==2.0.0 torchvision==0.22.1
 pip install einops==0.6.1 imageio==2.28.1   albumentations   Torchmetrics==0.11.4
 ```
 
@@ -38,7 +38,7 @@ pip install einops==0.6.1 imageio==2.28.1   albumentations   Torchmetrics==0.11.
 
 ## 3. Train
 
-python train.py --dataset inria --n_timesteps 16
+python train.py --dataset inria 
 
 ## 4. Validation
 
